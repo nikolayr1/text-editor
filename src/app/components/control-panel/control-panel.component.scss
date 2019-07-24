@@ -12,6 +12,14 @@
   margin-right: 400px;
 }
 
+.format-action {
+  transition: background-color .3s ease-in-out; // to make it nice))
+  cursor: pointer;
+  &_active {
+    background-color: #ffa500;
+  }
+}
+
 button + button {
   margin-left: 5px;
 }
