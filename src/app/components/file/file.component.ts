@@ -9,5 +9,5 @@ import {SelectionInterface} from '../../interfaces/selection.interface';
 })
 export class FileComponent {
   @Input() public html: string;
-  @Output() public selectionChange = new EventEmitter<SelectionInterface>();
+  @Output() public selectionChangeEvent = new EventEmitter<SelectionInterface>();
 }

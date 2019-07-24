@@ -2,9 +2,11 @@
 
 <main>
   <app-control-panel [decoration]="'bold'"
-                     (decorationChangeEvent)="onDecorationChange()"
+                     (decorationChangeEvent)="onDecorationChange($event)"
   ></app-control-panel>
-  <app-file></app-file>
+  <app-file [html]="html"
+            (selectionChangeEvent)="onSelectionChange($event)"
+  ></app-file>
 </main>
 
 <app-footer></app-footer>
