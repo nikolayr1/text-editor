@@ -1,7 +1,7 @@
 <app-header [title]="title"></app-header>
 
 <main>
-  <app-control-panel [decoration]="'bold'"
+  <app-control-panel [decoration]="decorationSrc | async"
                      (decorationChangeEvent)="onDecorationChange($event)"
   ></app-control-panel>
   <app-file [html]="html"

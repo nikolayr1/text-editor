@@ -24,7 +24,7 @@ export class TextModel {
     this.words = this.words.map(w => {
       if (w.position === selection.position) {
         w.decorate(decoration);
-        return WordModel.initFromData({text: w.text, position: w.position, decoration: w.decoration});
+        return w;
       } else {
         return w;
       }

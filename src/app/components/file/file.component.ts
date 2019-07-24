@@ -12,6 +12,7 @@ export class FileComponent {
 
   public select(): void {
     const selection = document.getSelection();
+    // TODO fix position. It is wrong if the thing has html tags.
     this.selectionChangeEvent.emit({text: selection.anchorNode['data'], position: selection.anchorOffset});
   }
 }

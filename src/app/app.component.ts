@@ -4,6 +4,7 @@ import {DecorationType} from './types/decoration.type';
 import {SelectionInterface} from './interfaces/selection.interface';
 import {TextModel} from './models/text.model';
 import {combineLatest, Subject} from 'rxjs';
+import {distinctUntilChanged} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -46,10 +47,13 @@ export class AppComponent implements OnInit {
 
   private watchText(): void {
     combineLatest(
-      this.decorationSrc.asObservable(),
-      this.selectionSrc.asObservable(),
+      this.decorationSrc.asObservable().pipe(distinctUntilChanged()),
+      this.selectionSrc.asObservable().pipe(distinctUntilChanged()),
     ).subscribe(([decoration, selection]) => {
+      console.log(decoration, selection);
       this.text.decorate(decoration, selection);
+      this.html = this.text.html;
+      console.log(this.html);
     });
   }
 }
