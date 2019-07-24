@@ -50,10 +50,8 @@ export class AppComponent implements OnInit {
       this.decorationSrc.asObservable().pipe(distinctUntilChanged()),
       this.selectionSrc.asObservable().pipe(distinctUntilChanged()),
     ).subscribe(([decoration, selection]) => {
-      console.log(decoration, selection);
       this.text.decorate(decoration, selection);
       this.html = this.text.html;
-      console.log(this.html);
     });
   }
 }
