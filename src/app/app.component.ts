@@ -3,7 +3,7 @@ import {TextService} from './services/text.service';
 import {DecorationType} from './types/decoration.type';
 import {SelectionInterface} from './interfaces/selection.interface';
 import {TextModel} from './models/text.model';
-import {combineLatest, Observable, Subject} from 'rxjs';
+import {combineLatest, Subject} from 'rxjs';
 
 @Component({
   selector: 'app-root',

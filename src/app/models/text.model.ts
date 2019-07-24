@@ -1,16 +1,33 @@
 import {SelectionInterface} from '../interfaces/selection.interface';
 import {DecorationType} from '../types/decoration.type';
+import {WordModel} from './word.model';
 
 export class TextModel {
+  private words: WordModel[] = []; // todo use map
+
   public static initFromString(string: string): TextModel {
-    return new TextModel();
+    const text = new TextModel();
+    const wordsStrings = string.trim().split(/[\s,]+/);
+    let wordPosition = 0;
+    wordsStrings.forEach((wordString, index) => {
+      text.words[index] = WordModel.initFromData({text: wordString, position: wordPosition, decoration: 'none'});
+      wordPosition += wordString.length + 1;
+    });
+    return text;
   }
 
   public get html(): string {
-    return 'asdfasdf';
+    return this.words.map(word => word.html).join(' ');
   }
 
   public decorate(decoration: DecorationType, selection: SelectionInterface): void {
-    console.log(decoration, selection);
+    this.words = this.words.map(w => {
+      if (w.position === selection.position) {
+        w.decorate(decoration);
+        return WordModel.initFromData({text: w.text, position: w.position, decoration: w.decoration});
+      } else {
+        return w;
+      }
+    });
   }
 }
