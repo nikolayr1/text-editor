@@ -10,4 +10,9 @@ import {SelectionInterface} from '../../interfaces/selection.interface';
 export class FileComponent {
   @Input() public html: string;
   @Output() public selectionChangeEvent = new EventEmitter<SelectionInterface>();
+
+  public select(): void {
+    const selection = document.getSelection();
+    this.selectionChangeEvent.emit({text: selection.anchorNode['data'], position: selection.anchorOffset});
+  }
 }

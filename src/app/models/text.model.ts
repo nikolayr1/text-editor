@@ -7,10 +7,10 @@ export class TextModel {
   }
 
   public get html(): string {
-    return '';
+    return 'asdfasdf';
   }
 
-  public decorate(decoration: DecorationType, deselection: SelectionInterface): void {
-
+  public decorate(decoration: DecorationType, selection: SelectionInterface): void {
+    console.log(decoration, selection);
   }
 }
