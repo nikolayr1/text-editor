@@ -10,19 +10,17 @@ import {SelectionInterface} from '../../interfaces/selection.interface';
 })
 export class ControlPanelComponent {
   @Input() decoration: DecorationType;
-  @Output() decorationChangeBoldEvent: EventEmitter<SelectionInterface> = new EventEmitter<SelectionInterface>();
-  @Output() decorationChangeItalicEvent: EventEmitter<SelectionInterface> = new EventEmitter<SelectionInterface>();
-  @Output() decorationChangeUnderlineEvent: EventEmitter<SelectionInterface> = new EventEmitter<SelectionInterface>();
+  @Output() decorationChangeEvent = new EventEmitter<DecorationType>();
 
   public setDecorationBold(): void {
-    this.decorationChangeBoldEvent.emit();
+    this.decorationChangeEvent.emit('bold');
   }
 
   public setDecorationItalic(): void {
-    this.decorationChangeBoldEvent.emit();
+    this.decorationChangeEvent.emit('italic');
   }
 
   public setDecorationUnderline(): void {
-    this.decorationChangeBoldEvent.emit();
+    this.decorationChangeEvent.emit('underline');
   }
 }

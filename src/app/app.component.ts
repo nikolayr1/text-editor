@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {TextService} from './services/text.service';
+import {DecorationType} from './types/decoration.type';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,7 @@ export class AppComponent {
 
   }
 
+  public onDecorationChange(decoration: DecorationType): void {
+
+  }
 }

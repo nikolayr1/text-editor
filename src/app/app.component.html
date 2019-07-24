@@ -1,7 +1,9 @@
 <app-header [title]="title"></app-header>
 
 <main>
-  <app-control-panel [decoration]="'bold'"></app-control-panel>
+  <app-control-panel [decoration]="'bold'"
+                     (decorationChangeEvent)="onDecorationChange()"
+  ></app-control-panel>
   <app-file></app-file>
 </main>
 
